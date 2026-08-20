@@ -147,7 +147,49 @@ Học viên nộp:
 3. `reports/benchmark_report.md` so sánh single vs multi-agent.
 4. Một đoạn giải thích failure mode và cách fix.
 
+## Establishing evaluation confidence
+
+The stronger evaluation path uses `datasets/gold_research_eval.json`: 12 cases, frozen evidence,
+atomic claim rubrics, two system modes, and three repetitions. Both candidates see the same
+evidence and outputs receive blind IDs. A different judge model returns schema-validated claim
+labels; repetition-one outputs are then checked by a human.
+
+```powershell
+malab validate-gold-dataset
+# Review datasets/GOLD_REVIEW.md, verify sources and rubrics, then approve every case.
+$env:SYSTEM_PROVIDER = "openrouter"
+$env:SYSTEM_MODEL = "nvidia/nemotron-nano-9b-v2:free"
+$env:OPENROUTER_API_KEY = "paste-your-key"
+$env:EVAL_JUDGE_PROVIDER = "openai"
+$env:EVAL_JUDGE_MODEL = "gpt-4o-mini"
+malab evaluate-gold --mode both --repetitions 3
+malab export-review-packet --seed 20260821
+# Edit the human_review object in each exported JSONL row, then import that same file.
+malab import-human-labels --labels reports/gold/annotations/human_review_packet.jsonl --seed 20260821
+```
+
+Grounded F1 is the primary quality metric. Supporting metrics cover factual precision, required
+claim recall, contradictions, citations, caveats, and forbidden claims. Comparisons average
+repetitions by case and use a seeded 10,000-sample paired bootstrap interval. No superiority is
+claimed unless the interval excludes zero. Model-judge results remain provisional until exact
+human agreement reaches 80% and Cohen's kappa reaches 0.70. This is a human-adjudicated lab set,
+not an official benchmark.
+
+After adding an OpenRouter key, verify provider connectivity with one case and a disposable seed:
+
+```powershell
+malab evaluate-gold --mode both --repetitions 1 --limit 1 --seed 20260822
+```
+
+Gold evaluation uses OpenRouter Chat Completions only for frozen candidate generation. Normal live
+web-search commands continue using OpenAI because OpenRouter does not provide the built-in OpenAI
+web-search tool used by this lab.
+
 ## References
+
+For a code-oriented explanation of the completed flow and metrics, read
+[`docs/system_walkthrough.md`](docs/system_walkthrough.md) and
+[`docs/design_template.md`](docs/design_template.md).
 
 - Anthropic: Building effective agents — https://www.anthropic.com/engineering/building-effective-agents
 - OpenAI Agents SDK orchestration/handoffs — https://developers.openai.com/api/docs/guides/agents/orchestration

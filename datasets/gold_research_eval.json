@@ -1,0 +1,597 @@
+{
+  "name": "multi-agent-research-lab-gold",
+  "version": "0.1.0-draft",
+  "description": "Draft human-adjudicated lab gold set. Evidence text is a reviewer-written source summary, not a quotation. Do not evaluate until every case is approved.",
+  "evidence": [
+    {"id":"ev_anthropic_workflows","title":"Building effective agents","url":"https://www.anthropic.com/engineering/building-effective-agents","retrieved_at":"2026-08-20","excerpt":"Workflows orchestrate LLMs and tools through predefined code paths, while agents dynamically direct their own processes and tool use. Start with the simplest solution that meets the need, adding agentic complexity only when it demonstrably improves outcomes.","content_sha256":"02c326d0cc8d478849318c856b9b7c59faa9e95c4390b92cfde120c4d572e353","source_type":"primary"},
+    {"id":"ev_openai_orchestration","title":"Orchestration and handoffs","url":"https://developers.openai.com/api/docs/guides/agents/orchestration","retrieved_at":"2026-08-20","excerpt":"Use handoffs when a specialist should take ownership of the conversation, and use agents as tools when a manager should retain control of the final response. Add specialists only when they materially improve isolation, prompt clarity, or trace legibility.","content_sha256":"63d0f0038cbc5bb4874291cc33f72d6b0b6fcd13b92643b3efe46ed6b8bdf839","source_type":"primary"},
+    {"id":"ev_langgraph_graph","title":"Workflows and agents","url":"https://docs.langchain.com/oss/python/langgraph/workflows-agents","retrieved_at":"2026-08-20","excerpt":"Workflows follow predetermined code paths, while agents dynamically define their processes and tool use. LangGraph represents workflows through state, nodes, edges, and conditional routes, and supports debugging and tracing data through workflow steps.","content_sha256":"6b4d3c1cba1b8d518128aebb99390a8eeda9979e825d5842dba47b6fb8e3e0aa","source_type":"primary"},
+    {"id":"ev_openai_handoffs","title":"Handoffs","url":"https://openai.github.io/openai-agents-python/handoffs/","retrieved_at":"2026-08-20","excerpt":"A handoff delegates work and transfers control to a specified agent. By default, the receiving agent sees the previous conversation history, but input filters and history settings can control what it receives. Handoff destinations, descriptions, metadata, and callbacks can also be explicitly configured.","content_sha256":"c5bf6f593588da6f96c6080ba7a6f0b638b1c242ff95016770d331f17c0e93cc","source_type":"primary"},
+    {"id":"ev_openai_eval_best","title":"Evaluation best practices","url":"https://developers.openai.com/api/docs/guides/evaluation-best-practices","retrieved_at":"2026-08-20","excerpt":"Generative AI is variable, and the same input can produce different outputs. Evaluations should define explicit objectives and metrics, use task-specific data reflecting real-world distributions, and be run continuously as the system changes.","content_sha256":"b995cd4b0d024321f2d950763e196db8070966d6d4eb376258835d8ad8bb8bc3","source_type":"primary"},
+    {"id":"ev_nist_rmf","title":"Artificial Intelligence Risk Management Framework (AI RMF 1.0)","url":"https://www.nist.gov/itl/ai-risk-management-framework","retrieved_at":"2026-08-20","excerpt":"The AI RMF Core organizes AI risk-management activities into Govern, Map, Measure, and Manage. It calls for ongoing monitoring and periodic review of risk-management processes, regular assessment of deployed systems, and post-deployment monitoring plans.","content_sha256":"cc15832406d341523dd58055c94eedd35c258f42bd70ed0644760aeaa75e138f","source_type":"primary"},
+    {"id":"ev_openai_graders","title":"Graders","url":"https://developers.openai.com/api/docs/guides/graders","retrieved_at":"2026-08-20","excerpt":"Graders compare model-generated answers with reference answers and return structured scores. Model graders should be iterated using high-quality model and human examples with ground-truth grades, and their behavior should be checked against expert human evaluations to detect misalignment or grader hacking.","content_sha256":"9db3ce308aec43ca6be1ad9492b917a13fa72155f8250e33ea06c0c8aa4f662c","source_type":"primary"},
+    {"id":"ev_openai_eval_runs","title":"Evals API reference","url":"https://developers.openai.com/api/reference/resources/evals","retrieved_at":"2026-08-20","excerpt":"An evaluation run specifies a data source and model configuration. Run objects expose aggregate result counts and results per testing criterion, while output-item endpoints expose individual data items, generated samples, grader scores, and pass-or-fail results.","content_sha256":"41bf2691be78b8bfcf0c94651bb3bd895d7f5e08b8d2f8292a86ee2471c372bf","source_type":"primary"},
+    {"id":"ev_rag_paper","title":"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks","url":"https://arxiv.org/abs/2005.11401","retrieved_at":"2026-08-20","excerpt":"Retrieval-augmented generation combines retrieved external passages with generation. Its original formulation was designed to improve knowledge-intensive language tasks.","content_sha256":"e17f5c59e70ac5c396832381327f84821341e4d9439bb99c3719ea117635cd0c","source_type":"primary"},
+    {"id":"ev_graphrag_paper","title":"From Local to Global: A Graph RAG Approach to Query-Focused Summarization","url":"https://arxiv.org/abs/2404.16130","retrieved_at":"2026-08-20","excerpt":"GraphRAG uses an LLM to construct an entity knowledge graph, detect hierarchical communities, and pregenerate community summaries. It answers global sensemaking questions through query-focused summarization over those summaries, contrasting with vector RAG’s focus on information localized within a small set of records.","content_sha256":"6e709df353dcc915bbc5df72f7294103633a06519959e4d6f16f262b0b68336a","source_type":"primary"},
+    {"id":"ev_openai_data","title":"Data controls in the OpenAI platform","url":"https://developers.openai.com/api/docs/guides/your-data","retrieved_at":"2026-08-20","excerpt":"API data may be stored in abuse-monitoring logs or as application state. Retention behavior and Zero Data Retention eligibility vary by endpoint and capability, while approved data controls can be configured at the organization or project level. Data sent to third-party services is subject to those services’ retention policies.","content_sha256":"7d1d21666b4015a7bfe3e7fb9a22d5e496bc34ca7317a5ad9feb683bfd372045","source_type":"primary"},
+    {"id":"ev_nist_privacy","title":"NIST Privacy Framework: A Tool for Improving Privacy through Enterprise Risk Management, Version 1.0","url":"https://www.nist.gov/privacy-framework","retrieved_at":"2026-08-20","excerpt":"The NIST Privacy Framework is a voluntary tool for identifying and managing privacy risk. It supports privacy-by-design practices by incorporating privacy considerations into system, product, and service design and deployment, and includes organizational governance structures for ongoing privacy risk management.","content_sha256":"9fe1cfb02f106a11a3c35b04d645da796a70b76e50a14acc86f49957bf3e4a81","source_type":"primary"}
+  ],
+  "cases": [
+    {
+      "id":"architecture_workflow_choice","query":"When should a research assistant use a fixed workflow instead of autonomous agents?","category":"architecture","difficulty":"easy","evidence_ids":["ev_anthropic_workflows"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims":[
+        {
+          "id": "arch1_req_workflow",
+          "text": "Fixed workflows orchestrate models and tools through predefined code paths.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        },
+        {
+          "id": "arch1_req_when",
+          "text": "Use workflows for well-defined tasks where predictability and consistency matter; use autonomous agents for open-ended tasks where the necessary steps cannot be hardcoded and model-driven flexibility is required.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        },
+        {
+          "id": "arch1_req_simple",
+          "text": "Start with the simplest design that meets the task need and add complexity only when it demonstrably improves outcomes.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        }
+      ],
+      "optional_claims":[
+        {
+          "id": "arch1_opt_evaluate",
+          "text": "Measure performance and iterate on the chosen implementation.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        }
+      ],
+      "forbidden_claims":[
+        {
+          "id": "arch1_forbid_always",
+          "text": "Autonomous multi-agent systems are always better than fixed workflows.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        }
+      ],
+      "required_caveats":[
+        {
+          "id": "arch1_caveat_tradeoff",
+          "text": "The choice depends on whether the task requires predictable execution or flexible decision-making, and whether improved performance justifies the additional latency, cost, and risk of compounding errors.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        }
+      ]
+    },
+    {
+      "id":"architecture_agent_boundary","query":"Explain a practical boundary between application orchestration and model autonomy.","category":"architecture","difficulty":"medium","evidence_ids":["ev_anthropic_workflows","ev_openai_orchestration"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "arch2_req_code",
+          "text": "Application-controlled workflows can orchestrate models and tools through predefined code paths.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        },
+        {
+          "id": "arch2_req_dynamic",
+          "text": "Agents dynamically direct their processes and tool use instead of following an entirely predefined path.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        },
+        {
+          "id": "arch2_req_boundary",
+          "text": "A practical boundary is to keep stable routing, ownership, and final-response control in the outer workflow while delegating open-ended or bounded specialist work to agents.",
+          "evidence_ids": [
+            "ev_anthropic_workflows",
+            "ev_openai_orchestration"
+          ]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "arch2_opt_specialists",
+          "text": "Specialized agents can be coordinated through explicit handoffs when a specialist should take ownership of the next response.",
+          "evidence_ids": ["ev_openai_orchestration"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "arch2_forbid_no_code",
+          "text": "Agent systems require all routing and orchestration decisions to be made by a model.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "arch2_caveat_spectrum",
+          "text": "The boundary is not binary: workflows and agentic components can be combined, and additional autonomy should be introduced only when it demonstrably improves outcomes.",
+          "evidence_ids": ["ev_anthropic_workflows"]
+        }
+      ]
+    },
+    {
+      "id":"orchestration_state","query":"Why is explicit graph state useful in a multi-agent research workflow?","category":"orchestration","difficulty":"easy","evidence_ids":["ev_langgraph_graph","ev_openai_handoffs"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "orch1_req_state",
+          "text": "Explicit graph state defines the intermediate data that workflow nodes and dynamically created workers read or update.",
+          "evidence_ids": ["ev_langgraph_graph"]
+        },
+        {
+          "id": "orch1_req_visibility",
+          "text": "Graph structure and tracing make it possible to inspect how data moves through workflow steps, which supports debugging.",
+          "evidence_ids": ["ev_langgraph_graph"]
+        },
+        {
+          "id": "orch1_req_context",
+          "text": "During an OpenAI Agents SDK handoff, the receiving agent sees the previous conversation history by default, unless input filters or history settings modify it.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "orch1_opt_workers",
+          "text": "Shared state lets an orchestrator access worker outputs and synthesize them into a final result.",
+          "evidence_ids": ["ev_langgraph_graph"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "orch1_forbid_no_history",
+          "text": "A receiving agent never sees the conversation history from before the handoff.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "orch1_caveat_design",
+          "text": "Explicit state does not by itself guarantee appropriate handoff context; developers may need to configure input filters or history settings when the default full history is unsuitable.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        }
+      ]
+    },
+    {
+      "id":"orchestration_handoffs","query":"How should a researcher agent hand off work and context to a specialist analyst agent?","category":"orchestration","difficulty":"medium","evidence_ids":["ev_openai_handoffs"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "orch2_req_control",
+          "text": "A handoff delegates work to a specialist agent, which then takes over the conversation.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        },
+        {
+          "id": "orch2_req_destination",
+          "text": "Each possible destination should be registered as a separate handoff, with a clear description that helps the model choose the appropriate specialist.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        },
+        {
+          "id": "orch2_req_context",
+          "text": "The receiving analyst sees the previous conversation history by default; input filters and history settings can control what context it receives.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "orch2_opt_metadata",
+          "text": "Structured handoff input can carry small pieces of model-generated metadata such as a reason, priority, language, or summary.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "orch2_forbid_destination",
+          "text": "A standard handoff can transfer control to any unregistered agent destination.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "orch2_caveat_input",
+          "text": "Structured handoff metadata does not replace the receiving agent’s main input or conversation history and does not select a different destination.",
+          "evidence_ids": ["ev_openai_handoffs"]
+        }
+      ]
+    },
+    {
+      "id":"reliability_repeated_runs","query":"Why should an LLM research system be evaluated over repeated runs?","category":"reliability","difficulty":"easy","evidence_ids":["ev_openai_eval_best"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "rel1_req_variable",
+          "text": "Generative AI behavior is variable, and a model can produce different outputs from the same input.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        },
+        {
+          "id": "rel1_req_repeat",
+          "text": "Because outputs vary, one successful execution does not establish reliable behavior across repeated uses.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        },
+        {
+          "id": "rel1_req_continuous",
+          "text": "Evaluation should be performed early, often, and continuously as the system changes.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "rel1_opt_monitor",
+          "text": "Production monitoring can identify new cases of nondeterministic behavior and expand the evaluation set over time.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "rel1_forbid_once",
+          "text": "One passing run establishes system reliability.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "rel1_caveat_representative",
+          "text": "Repeated execution alone is insufficient; evaluation also needs task-specific inputs reflecting real-world distributions and explicit success criteria.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        }
+      ]
+    },
+    {
+      "id":"reliability_risk_loop","query":"Propose a reliability loop for an agentic research system.","category":"reliability","difficulty":"hard","evidence_ids":["ev_openai_eval_best","ev_nist_rmf"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "rel2_req_rmf",
+          "text": "A reliability loop based on the NIST AI RMF should cover Govern, Map, Measure, and Manage, with Govern operating across the other functions.",
+          "evidence_ids": ["ev_nist_rmf"]
+        },
+        {
+          "id": "rel2_req_eval",
+          "text": "Measurement should use an explicit objective, defined success criteria, and task-specific inputs reflecting real-world distributions.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        },
+        {
+          "id": "rel2_req_response",
+          "text": "Measured risks should feed into prioritized risk responses, documented controls, and decisions about whether deployment should continue.",
+          "evidence_ids": ["ev_nist_rmf"]
+        },
+        {
+          "id": "rel2_req_monitor",
+          "text": "After deployment, the system and its risk-management process should be monitored and periodically reviewed, with results feeding back into evaluation and management.",
+          "evidence_ids": [
+            "ev_nist_rmf",
+            "ev_openai_eval_best"
+          ]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "rel2_opt_repeat",
+          "text": "Evaluations should be run early, often, and continuously because model behavior is variable.",
+          "evidence_ids": ["ev_openai_eval_best"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "rel2_forbid_static",
+          "text": "Risk management ends after the first deployment review.",
+          "evidence_ids": ["ev_nist_rmf"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "rel2_caveat_flexible",
+          "text": "The NIST AI RMF is voluntary and use-case agnostic; it does not prescribe one universal reliability loop, evaluation method, or level of acceptable risk.",
+          "evidence_ids": ["ev_nist_rmf"]
+        }
+      ]
+    },
+    {
+      "id":"evaluation_model_judge","query":"How can we use a model judge without pretending it is ground truth?","category":"evaluation","difficulty":"medium","evidence_ids":["ev_openai_graders","ev_openai_eval_runs"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "eval1_req_automated",
+          "text": "A model grader applies a configured grading prompt to model outputs and returns a numeric score.",
+          "evidence_ids": ["ev_openai_graders"]
+        },
+        {
+          "id": "eval1_req_calibrate",
+          "text": "The grader should be evaluated using many high-quality answers from models and trusted human experts with corresponding human-assigned grades.",
+          "evidence_ids": ["ev_openai_graders"]
+        },
+        {
+          "id": "eval1_req_compare",
+          "text": "The grader’s rankings and scores should be checked against expert human judgments.",
+          "evidence_ids": ["ev_openai_graders"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "eval1_opt_samples",
+          "text": "Review individual evaluation output items alongside aggregate pass, fail, and error counts.",
+          "evidence_ids": ["ev_openai_eval_runs"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "eval1_forbid_truth",
+          "text": "A model judge’s score is itself objective ground truth.",
+          "evidence_ids": ["ev_openai_graders"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "eval1_caveat_target",
+          "text": "A model grader can disagree with human experts or be exploited through grader hacking, so it must be tested on task-specific examples, compared with expert evaluations, and updated as new edge cases appear.",
+          "evidence_ids": ["ev_openai_graders"]
+        }
+      ]
+    },
+    {
+      "id":"evaluation_report","query":"What should be documented and inspected when reporting an evaluation run that uses model graders?","category":"evaluation","difficulty":"medium","evidence_ids":["ev_openai_graders","ev_openai_eval_runs"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "eval2_req_criteria",
+          "text": "The report should identify the evaluation’s data source and explicit testing criteria.",
+          "evidence_ids": ["ev_openai_eval_runs"]
+        },
+        {
+          "id": "eval2_req_aggregates",
+          "text": "It should report aggregate pass, fail, and error counts, including results for each testing criterion.",
+          "evidence_ids": ["ev_openai_eval_runs"]
+        },
+        {
+          "id": "eval2_req_samples",
+          "text": "It should inspect individual output items, including the input, generated output, grader result, pass status, and score.",
+          "evidence_ids": ["ev_openai_eval_runs"]
+        },
+        {
+          "id": "eval2_req_validation",
+          "text": "When a model grader is used, the report should explain how its judgments were compared with grades or rankings from trusted human experts.",
+          "evidence_ids": ["ev_openai_graders"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "eval2_opt_grader",
+          "text": "Document the grader type, grading prompt or logic, reference answers, score range, and pass threshold.",
+          "evidence_ids": ["ev_openai_graders"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "eval2_forbid_aggregate",
+          "text": "An aggregate pass rate alone explains why individual cases passed or failed.",
+          "evidence_ids": ["ev_openai_eval_runs"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "eval2_caveat_human",
+          "text": "Model graders can disagree with human experts or be exploited through grader hacking, so their aggregate scores should not be presented as objective ground truth.",
+          "evidence_ids": ["ev_openai_graders"]
+        }
+      ]
+    },
+    {
+      "id":"retrieval_rag_vs_graphrag","query":"Contrast basic RAG with GraphRAG for research tasks.","category":"retrieval","difficulty":"medium","evidence_ids":["ev_rag_paper","ev_graphrag_paper"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "ret1_req_rag",
+          "text": "The original RAG formulation combines a parametric sequence-to-sequence model with passages retrieved from a dense vector index.",
+          "evidence_ids": ["ev_rag_paper"]
+        },
+        {
+          "id": "ret1_req_graph",
+          "text": "GraphRAG builds an entity graph and pregenerates community summaries, then combines partial responses from those summaries into a final response.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        },
+        {
+          "id": "ret1_req_use",
+          "text": "GraphRAG is designed for global questions about an entire corpus, whereas conventional RAG is framed around retrieving information relevant to an explicit query.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "ret1_opt_results",
+          "text": "For the evaluated class of global sensemaking questions, GraphRAG improved answer comprehensiveness and diversity over the conventional RAG baseline.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "ret1_forbid_always",
+          "text": "GraphRAG is universally better than conventional RAG for every research question and corpus.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "ret1_caveat_scope",
+          "text": "The reported GraphRAG advantage was demonstrated for a class of global sensemaking questions over corpora around one million tokens; the evidence does not establish universal superiority or a comparative indexing-cost result.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        }
+      ]
+    },
+    {
+      "id":"retrieval_global_questions","query":"When might GraphRAG justify its additional indexing work?","category":"retrieval","difficulty":"hard","evidence_ids":["ev_rag_paper","ev_graphrag_paper"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "ret2_req_global",
+          "text": "GraphRAG is designed for global sensemaking questions about an entire corpus, where conventional passage retrieval may not retrieve all information needed for a corpus-level answer.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        },
+        {
+          "id": "ret2_req_summary",
+          "text": "Its indexing process uses an LLM to derive an entity graph and pregenerate summaries for communities of related entities.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        },
+        {
+          "id": "ret2_req_benefit",
+          "text": "The additional indexing work may be justified when global corpus questions are important and improvements in answer comprehensiveness and diversity are valuable.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "ret2_opt_basic",
+          "text": "Conventional RAG remains useful for knowledge-intensive tasks based on retrieving passages relevant to a query.",
+          "evidence_ids": ["ev_rag_paper"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "ret2_forbid_always",
+          "text": "GraphRAG is always worth its additional indexing process or should replace conventional RAG for every query.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        },
+        {
+          "id": "ret2_forbid_cheaper",
+          "text": "The paper establishes that GraphRAG is cheaper to index than conventional RAG.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "ret2_caveat_scope",
+          "text": "The reported gains were demonstrated for a class of global sensemaking questions over corpora around one million tokens; the paper does not provide a general indexing-cost comparison or prove that the benefits outweigh costs for every deployment.",
+          "evidence_ids": ["ev_graphrag_paper"]
+        }
+      ]
+    },
+    {
+      "id":"application_sensitive_data","query":"What privacy and retention controls should a research application using the OpenAI API consider?","category":"application_design","difficulty":"medium","evidence_ids":["ev_openai_data","ev_nist_privacy"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "app1_req_design",
+          "text": "Privacy risk management should be incorporated into system design, deployment, and organizational governance.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app1_req_inventory",
+          "text": "The application should inventory the data elements it processes, their purposes, the processing environment, and relevant internal or third-party components.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app1_req_minimize",
+          "text": "Data processing should follow data-minimization principles and support selective collection or disclosure consistent with the organization’s privacy-risk strategy.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app1_req_retention",
+          "text": "OpenAI retention behavior should be reviewed for each endpoint, capability, and organization or project configuration.",
+          "evidence_ids": ["ev_openai_data"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "app1_opt_training",
+          "text": "OpenAI states that API data is not used to train or improve its models unless the customer explicitly opts in.",
+          "evidence_ids": ["ev_openai_data"]
+        },
+        {
+          "id": "app1_opt_lifecycle",
+          "text": "Policies should cover data access, disclosure, alteration, deletion, and destruction throughout the data lifecycle.",
+          "evidence_ids": ["ev_nist_privacy"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "app1_forbid_uniform",
+          "text": "All OpenAI API endpoints and accounts have identical retention behavior.",
+          "evidence_ids": ["ev_openai_data"]
+        },
+        {
+          "id": "app1_forbid_zdr",
+          "text": "Enabling Zero Data Retention guarantees that no application state is stored by every endpoint or capability.",
+          "evidence_ids": ["ev_openai_data"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "app1_caveat_controls",
+          "text": "Zero Data Retention requires eligibility and approval, has endpoint-specific limitations, and does not govern data sent to third-party services such as remote MCP servers.",
+          "evidence_ids": ["ev_openai_data"]
+        },
+        {
+          "id": "app1_caveat_voluntary",
+          "text": "The NIST Privacy Framework is a voluntary, risk-based framework rather than a complete legal or regulatory compliance standard.",
+          "evidence_ids": ["ev_nist_privacy"]
+        }
+      ]
+    },
+    {
+      "id":"application_privacy_review","query":"Design a privacy review checklist for a research application using the OpenAI API.","category":"application_design","difficulty":"hard","evidence_ids":["ev_openai_data","ev_nist_privacy"],"status": "approved","drafted_by": "codex-draft","human_reviewer_id": "2A202601475","reviewed_at": "2026-08-20T17:00:00+07:00",
+      "required_claims": [
+        {
+          "id": "app2_req_inventory",
+          "text": "Inventory the processed data elements, data actions, processing purposes, affected individuals, system components, owners, and third-party processors.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_req_map",
+          "text": "Map how data moves through the application and identify the environments and lifecycle stages in which it is processed.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_req_governance",
+          "text": "Define privacy policies, risk tolerance, responsibilities, and governance processes as part of system design and deployment.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_req_minimize",
+          "text": "Apply data-minimization principles and support selective collection or disclosure consistent with the organization’s privacy-risk strategy.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_req_lifecycle",
+          "text": "Review controls for data access, transmission, disclosure, alteration, deletion, destruction, and disclosure records throughout the data lifecycle.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_req_protection",
+          "text": "Review protections for data at rest and in transit, access controls, and safeguards against data leakage.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_req_controls",
+          "text": "Review abuse-monitoring retention, application-state retention, Zero Data Retention eligibility, and relevant organization or project settings for every OpenAI endpoint and capability used.",
+          "evidence_ids": ["ev_openai_data"]
+        },
+        {
+          "id": "app2_req_third_party",
+          "text": "Identify data sent to third-party services because their retention policies apply independently of OpenAI’s controls.",
+          "evidence_ids": ["ev_openai_data"]
+        }
+      ],
+      "optional_claims": [
+        {
+          "id": "app2_opt_training",
+          "text": "Record whether the organization has opted in to sharing API data for model improvement; OpenAI states API data is otherwise not used for training.",
+          "evidence_ids": ["ev_openai_data"]
+        },
+        {
+          "id": "app2_opt_lineage",
+          "text": "Maintain data provenance, lineage, and records of disclosures or sharing.",
+          "evidence_ids": ["ev_nist_privacy"]
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "app2_forbid_none",
+          "text": "Using an API removes the need for application privacy governance.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_forbid_zdr",
+          "text": "Zero Data Retention guarantees that no application state is stored by every endpoint, capability, or third-party service.",
+          "evidence_ids": ["ev_openai_data"]
+        }
+      ],
+      "required_caveats": [
+        {
+          "id": "app2_caveat_voluntary",
+          "text": "The NIST Privacy Framework is voluntary, risk-based guidance and does not by itself establish legal or regulatory compliance.",
+          "evidence_ids": ["ev_nist_privacy"]
+        },
+        {
+          "id": "app2_caveat_scope",
+          "text": "These sources do not provide specific requirements for secrets management or agent-to-agent authorization; separate security evidence is needed for those controls.",
+          "evidence_ids": [
+            "ev_openai_data",
+            "ev_nist_privacy"
+          ]
+        }
+      ]
+    }
+  ]
+}
